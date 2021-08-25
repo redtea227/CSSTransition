@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: #323641;
+    }
+
+    .letter-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+
+    .animated-mail {
+      position: absolute;
+      height: 150px;
+      width: 200px;
+      transition: .4s;
+    }
+
+    .animated-mail .body {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 200px 100px 0;
+      border-color: transparent transparent rgb(51 177 233) transparent;
+      border-radius: 5px 5px 5px 0;
+      z-index: 2;
+    }
+
+    .animated-mail .top-fold {
+      position: absolute;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 100px 0 100px;
+      transform-origin: 50% 0%;
+      transition: transform .4s .4s, z-index .2s .4s;
+      border-color: rgb(0 117 255) transparent transparent transparent;
+      z-index: 2;
+    }
+
+    .animated-mail .back-fold {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 100px;
+      background: rgb(0 117 255);
+      z-index: 0;
+    }
+
+    .animated-mail .right-fold {
+      position: absolute;
+      left:100px;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 100px 50px 0;
+      border-color: transparent rgb(37 156 221) transparent transparent;
+      border-radius: 5px;
+      z-index: 2;
+    }
+
+    .animated-mail .letter {
+      left: 20px;
+      bottom: 0px;
+      position: absolute;
+      width: 160px;
+      height: 60px;
+      background: white;
+      z-index: 1;
+      overflow: hidden;
+      transition: .4s .2s;
+    }
+
+
+    .shadow {
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      width: 400px;
+      height: 30px;
+      transition: .4s;
+      transform: translateX(-50%);
+
+      border-radius: 100%;
+      background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+    }
+
+    /* hover */
+    .letter-image:hover .animated-mail {
+      transform: translateY(50px);
+    }
+
+    .letter-image:hover .animated-mail .top-fold {
+      transition: transform .4s, z-index .2s;
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+
+    .letter-image:hover .animated-mail .letter {
+      height: 180px;
+    }
+
+    .letter-image:hover .shadow {
+      width: 250px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="letter-image">
+    <div class="animated-mail">
+      <div class="back-fold"></div>
+      <div class="letter">
+        <div class="letter-medal" style="text-align:center">
+          <p style="font-size: 24px;margin-top: 5px">TAIWAN</p>
+          <img src="./gold-medal.svg" style="height: 80px;margin-top: -20px;">
+        </div>
+      </div>
+      <div class="top-fold"></div>
+      <div class="body"></div>
+      <div class="right-fold"></div>
+    </div>
+    <div class="shadow"></div>
+  </div>
+</body>
+
+</html>
